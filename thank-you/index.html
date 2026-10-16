@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>ConversionSystem™ | Thank You</title>
+</head>
+<body style="margin:0;background:#fff">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+#cs-thankyou,#cs-thankyou *{box-sizing:border-box}
+#cs-thankyou{
+  --orange:#f87319;--orange-dark:#c65312;--ink:#34251d;
+  --muted:#78695f;--line:#f0e5dc;--green:#20b96b;
+  --green-dark:#10894b;--green-pale:#eafaf1;
+  width:100%;margin:0;padding:12px 12px 16px;
+  background:#fff!important;color:var(--ink);
+  font-family:'DM Sans',sans-serif;overflow:hidden;
+  position:relative;isolation:isolate;
+}
+#cs-thankyou .cs-ty-wrap{width:100%;max-width:920px;margin:auto;background:#fff!important}
+#cs-thankyou .cs-ty-shell{
+  position:relative;width:100%;margin:0;padding:0;
+  border:1px solid #f0e5dc;border-radius:20px;
+  background:#fff!important;box-shadow:0 8px 25px rgba(77,46,23,.035);
+  overflow:hidden;animation:cs-enter .7s cubic-bezier(.2,.75,.25,1) both
+}
+#cs-thankyou .cs-hero{
+  position:relative;padding:27px 22px 20px;text-align:center;
+  background:#fff!important
+}
+#cs-thankyou .cs-kicker{
+  display:block;width:100%;margin:0;padding:0;
+  color:var(--orange-dark);background:transparent!important;
+  border:0!important;font-family:'Manrope',sans-serif;
+  font-size:12px;font-weight:800;line-height:1.6;
+  letter-spacing:1.5px;text-transform:uppercase;
+  animation:cs-rise .6s ease .05s both
+}
+
+/* COMPACT GREEN TICK */
+#cs-thankyou .cs-check-area{
+  position:relative;width:72px;height:72px;margin:19px auto 17px;
+  perspective:500px;transform-style:preserve-3d;
+  animation:cs-pulse 2.2s ease-in-out 1s infinite
+}
+#cs-thankyou .cs-check-glow{
+  position:absolute;inset:-6px;border-radius:50%;
+  background:rgba(32,185,107,.09);animation:cs-glow 2.8s ease-in-out infinite
+}
+#cs-thankyou .cs-check-ring{
+  position:relative;width:72px;height:72px;display:grid;place-items:center;
+  border:2px solid #8ce5b3;border-radius:50%;
+  background:radial-gradient(circle at 30% 25%,#fff,var(--green-pale));
+  box-shadow:0 0 0 4px rgba(32,185,107,.06),0 7px 17px rgba(32,185,107,.11);
+  animation:cs-pop .7s cubic-bezier(.17,.89,.32,1.35) .1s both
+}
+#cs-thankyou .cs-check-ring svg{display:block;width:37px;height:37px;overflow:visible}
+#cs-thankyou .cs-check-path{
+  fill:none;stroke:var(--green);stroke-width:5.5;
+  stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:70;stroke-dashoffset:70;
+  animation:cs-draw .55s ease-out .65s forwards
+}
+#cs-thankyou .cs-status{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  padding:6px 11px;border:1px solid #bcebd0;border-radius:100px;
+  background:var(--green-pale)!important;color:var(--green-dark);
+  font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;
+  animation:cs-rise .6s ease .2s both
+}
+#cs-thankyou .cs-status-dot{
+  width:6px;height:6px;flex-shrink:0;border-radius:50%;
+  background:var(--green);box-shadow:0 0 0 3px rgba(32,185,107,.11)
+}
+#cs-thankyou .cs-title{
+  margin:13px 0 7px;padding:0;border:0!important;
+  background:transparent!important;color:var(--ink);
+  font-family:'Manrope',sans-serif;font-size:clamp(33px,5vw,49px);
+  font-weight:800;line-height:1.08;letter-spacing:-1.6px;
+  animation:cs-rise .65s ease .15s both
+}
+#cs-thankyou .cs-orange-word{color:var(--orange)}
+#cs-thankyou .cs-subtitle{
+  max-width:550px;margin:0 auto;padding:0;
+  background:transparent!important;color:var(--ink);
+  font-family:'Manrope',sans-serif;font-size:clamp(16px,2.4vw,21px);
+  font-weight:700;line-height:1.45;letter-spacing:-.4px;
+  animation:cs-rise .65s ease .25s both
+}
+#cs-thankyou .cs-intro{
+  max-width:530px;margin:9px auto 0;color:var(--muted);
+  font-size:13px;line-height:1.7;animation:cs-rise .65s ease .32s both
+}
+
+/* CONFETTI */
+#cs-thankyou .cs-confetti-layer{
+  position:absolute;top:0;left:0;width:100%;height:180px;
+  overflow:hidden;pointer-events:none;background:transparent!important;z-index:5
+}
+#cs-thankyou .cs-confetti-piece{
+  position:absolute;top:95px;left:50%;width:var(--w,6px);height:var(--h,10px);
+  border-radius:2px;background:var(--c);opacity:0;
+  animation:cs-confetti var(--t,1.3s) cubic-bezier(.15,.7,.3,1) var(--d,0s) forwards
+}
+
+/* COMPACT NEXT STEPS */
+#cs-thankyou .cs-steps{padding:5px 30px 0;background:#fff!important}
+#cs-thankyou .cs-section-label{
+  margin:8px 0 12px;padding:0;background:transparent!important;
+  color:var(--orange-dark);font-family:'Manrope',sans-serif;
+  font-size:11px;font-weight:800;line-height:1.6;
+  letter-spacing:1.35px;text-align:center;text-transform:uppercase;
+  animation:cs-rise .6s ease .35s both
+}
+#cs-thankyou .cs-step{
+  display:grid;grid-template-columns:37px minmax(0,1fr);
+  align-items:start;gap:12px;padding:14px 0;
+  background:#fff!important;animation:cs-rise .6s ease both
+}
+#cs-thankyou .cs-step:nth-child(2){animation-delay:.15s}
+#cs-thankyou .cs-step:nth-child(3){animation-delay:.25s}
+#cs-thankyou .cs-step:nth-child(4){animation-delay:.35s}
+#cs-thankyou .cs-step+.cs-step{border-top:1px solid var(--line)}
+#cs-thankyou .cs-step-icon{
+  display:grid;width:35px;height:35px;place-items:center;
+  border:1px solid #f5d5bc;border-radius:11px;
+  color:var(--orange-dark);background:#fff4e9!important
+}
+#cs-thankyou .cs-step-icon svg{display:block;width:18px;height:18px}
+#cs-thankyou .cs-step-title{
+  margin:0 0 5px;padding:0;background:transparent!important;
+  color:var(--ink);font-family:'Manrope',sans-serif;
+  font-size:13px;font-weight:800;line-height:1.5
+}
+#cs-thankyou .cs-step-copy{
+  margin:0;padding:0;background:transparent!important;
+  color:var(--muted);font-size:12px;line-height:1.75
+}
+#cs-thankyou .cs-not-spam{color:var(--orange-dark);font-weight:700}
+
+/* PLAIN TEXT CONTACT DETAILS */
+#cs-thankyou .cs-contact-details{
+  display:flex;flex-direction:column;align-items:flex-start;
+  gap:6px;margin-top:9px;background:transparent!important
+}
+#cs-thankyou .cs-contact-line{
+  margin:0;padding:0;background:transparent!important;color:var(--ink);
+  font-size:12px;line-height:1.65;font-weight:500;overflow-wrap:anywhere
+}
+#cs-thankyou .cs-contact-label{color:var(--orange-dark);font-weight:800}
+#cs-thankyou .cs-sites-label{
+  margin:12px 0 5px;padding:0;background:transparent!important;
+  color:#9a877b;font-family:'Manrope',sans-serif;
+  font-size:9px;font-weight:800;line-height:1.5;
+  letter-spacing:1.2px;text-transform:uppercase
+}
+#cs-thankyou .cs-site-names{
+  margin:0;padding:0;background:transparent!important;color:var(--ink);
+  font-family:'DM Sans',sans-serif;font-size:12px;
+  font-weight:500;line-height:1.8;overflow-wrap:anywhere
+}
+
+/* HEADLINE STAYS INSIDE THE SAME SECTION */
+#cs-thankyou .cs-ending{
+  display:block;width:100%;margin:0;padding:14px 8px 20px;
+  background:#fff!important;border:0!important;outline:0!important;
+  box-shadow:none!important;border-radius:0!important;
+  text-align:center;animation:cs-rise .6s ease .42s both
+}
+#cs-thankyou .cs-ending-line{
+  display:block;width:100%;max-width:100%;margin:0;padding:0;
+  background:transparent!important;border:0!important;box-shadow:none!important;
+  color:var(--ink);font-family:'Manrope',sans-serif;
+  font-size:clamp(12px,2.7vw,26px);font-weight:800;
+  line-height:1.4;letter-spacing:-.55px;text-align:center;white-space:nowrap
+}
+#cs-thankyou .cs-ending-line span{color:var(--orange-dark)}
+
+/* ANIMATION */
+@keyframes cs-enter{
+  from{opacity:0;transform:translateY(13px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes cs-rise{
+  from{opacity:0;transform:translateY(9px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes cs-pop{
+  0%{opacity:0;transform:scale(.45) rotate(-12deg)}
+  72%{opacity:1;transform:scale(1.06) rotate(3deg)}
+  100%{opacity:1;transform:scale(1) rotate(0)}
+}
+@keyframes cs-pulse{
+  0%,100%{transform:scale(.96) translate3d(0,1px,-2px)}
+  50%{transform:scale(1.055) translate3d(0,-2px,5px)}
+}
+@keyframes cs-draw{to{stroke-dashoffset:0}}
+@keyframes cs-glow{
+  0%,100%{transform:scale(.96);opacity:.55}
+  50%{transform:scale(1.07);opacity:1}
+}
+@keyframes cs-confetti{
+  0%{opacity:0;transform:translate(-50%,0) scale(.3) rotate(0)}
+  12%{opacity:1}
+  100%{opacity:0;transform:translate(calc(-50% + var(--x)),var(--y)) rotate(var(--r))}
+}
+
+/* DESKTOP MICRO-INTERACTION */
+@media (hover:hover) and (pointer:fine){
+  #cs-thankyou .cs-step{transition:transform .22s ease}
+  #cs-thankyou .cs-step:hover{transform:translateX(2px)}
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  #cs-thankyou{padding:9px 7px 12px}
+  #cs-thankyou .cs-ty-shell{border-radius:17px}
+  #cs-thankyou .cs-hero{padding:23px 14px 17px}
+  #cs-thankyou .cs-kicker{font-size:11px;letter-spacing:1.2px}
+  #cs-thankyou .cs-check-area,
+  #cs-thankyou .cs-check-ring{width:67px;height:67px}
+  #cs-thankyou .cs-check-ring svg{width:34px;height:34px}
+  #cs-thankyou .cs-check-area{margin:16px auto 15px}
+  #cs-thankyou .cs-title{font-size:clamp(32px,9.5vw,43px);letter-spacing:-1.5px}
+  #cs-thankyou .cs-subtitle{font-size:clamp(16px,4.5vw,20px)}
+  #cs-thankyou .cs-intro{font-size:12px;line-height:1.7;margin-top:8px}
+  #cs-thankyou .cs-steps{padding:4px 15px 0}
+  #cs-thankyou .cs-section-label{font-size:10px;letter-spacing:1.05px;margin:8px 0 10px}
+  #cs-thankyou .cs-step{grid-template-columns:33px minmax(0,1fr);gap:10px;padding:13px 0}
+  #cs-thankyou .cs-step-icon{width:32px;height:32px;border-radius:10px}
+  #cs-thankyou .cs-step-icon svg{width:17px;height:17px}
+  #cs-thankyou .cs-step-title{font-size:12px}
+  #cs-thankyou .cs-step-copy{font-size:11.5px;line-height:1.75}
+  #cs-thankyou .cs-contact-line,
+  #cs-thankyou .cs-site-names{font-size:11.5px}
+  #cs-thankyou .cs-ending{padding:12px 3px 17px}
+  #cs-thankyou .cs-ending-line{font-size:clamp(10px,3.35vw,18px);letter-spacing:-.4px}
+}
+
+/* ACCESSIBILITY */
+@media(prefers-reduced-motion:reduce){
+  #cs-thankyou *,
+  #cs-thankyou *::before,
+  #cs-thankyou *::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    scroll-behavior:auto!important
+  }
+}
+</style>
+
+<div id="cs-thankyou">
+  <div class="cs-ty-wrap">
+    <main class="cs-ty-shell">
+
+      <div class="cs-confetti-layer" id="cs-confetti-layer" aria-hidden="true"></div>
+
+      <section class="cs-hero">
+        <div class="cs-kicker">30-DAY CHALLENGE</div>
+
+        <div class="cs-check-area" aria-label="Enrollment status">
+          <div class="cs-check-glow"></div>
+          <div class="cs-check-ring">
+            <svg viewBox="0 0 56 56" aria-hidden="true">
+              <path class="cs-check-path" d="M13 29 L23 39 L44 17"></path>
+            </svg>
+          </div>
+        </div>
+
+        <div class="cs-status">
+          <span class="cs-status-dot"></span>
+          ENROLLMENT CONFIRMED
+        </div>
+
+        <h1 class="cs-title">YOU'RE <span class="cs-orange-word">IN.</span></h1>
+
+        <h2 class="cs-subtitle">Your 30-Day Brand Fix starts now.</h2>
+
+        <p class="cs-intro">
+          Your next steps are on their way. Check your inbox for your welcome email, challenge details and access links.
+        </p>
+      </section>
+
+      <section class="cs-steps">
+        <p class="cs-section-label">HERE'S WHAT HAPPENS NEXT</p>
+
+        <div class="cs-step">
+          <div class="cs-step-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <rect x="3.5" y="5" width="17" height="14" rx="2"
+                stroke="currentColor" stroke-width="1.7"/>
+              <path d="M4.5 7L12 12.5L19.5 7"
+                stroke="currentColor" stroke-width="1.7"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="cs-step-title">01 — CHECK YOUR INBOX</h3>
+            <p class="cs-step-copy">
+              Find your 30-Day Challenge welcome email, including the resources and links.
+            </p>
+          </div>
+        </div>
+
+        <div class="cs-step">
+          <div class="cs-step-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 7.5A2.5 2.5 0 0 1 6.5 5H17.5A2.5 2.5 0 0 1 20 7.5V16.5A2.5 2.5 0 0 1 17.5 19H6.5A2.5 2.5 0 0 1 4 16.5Z"
+                stroke="currentColor" stroke-width="1.7"/>
+              <path d="M4.5 8L12 13L19.5 8"
+                stroke="currentColor" stroke-width="1.7"
+                stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M17 3.5L19 2.5M20.5 5L22 4.5"
+                stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="cs-step-title">02 — CAN'T FIND THE EMAIL?</h3>
+            <p class="cs-step-copy">
+              Check your <strong>Spam</strong> and <strong>Promotions</strong>
+              folders. If you find our email there, mark it as
+              <span class="cs-not-spam">Not Spam</span>
+              so you don't miss future updates.
+            </p>
+          </div>
+        </div>
+
+        <div class="cs-step">
+          <div class="cs-step-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M21 11.5A8.4 8.4 0 0 1 8.6 19L3 21L4.8 15.4A8.5 8.5 0 1 1 21 11.5Z"
+                stroke="currentColor" stroke-width="1.7"
+                stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8.5 9.5C9.2 11 10.2 12 11.7 12.7"
+                stroke="currentColor" stroke-width="1.7"
+                stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="cs-step-title">03 — NEED HELP?</h3>
+            <p class="cs-step-copy">
+              Got a question? Don't sit on it. Reach out using the contact details below. THE NEXT 30 DAYS PLAY DIFFERENT.
+            </p>
+
+            <div class="cs-contact-details">
+              <p class="cs-contact-line">
+                <span class="cs-contact-label">WhatsApp / Phone:</span>
+                +91 9506189283
+              </p>
+              <p class="cs-contact-line">
+                <span class="cs-contact-label">Email:</span>
+                srivastavakali8@gmail.com OR
+                conversionsystems.methodlogy@gmail.com
+              </p>
+            </div>
+
+            <p class="cs-sites-label">THE PROBLEM</p>
+            <p class="cs-site-names">
+              Might not be your product or your ad budget. It might be what happens between “I like this” and “I'm buying this.”<br>
+              THAT'S THE GAP we're here to work on.<br>
+              conversionSystem team
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SAME MAIN SECTION: NO SEPARATE FOOTER OR DIVIDER -->
+      <footer class="cs-ending">
+        <p class="cs-ending-line">
+          Get your next <span>100 ORDERS</span> in just 30days
+        </p>
+      </footer>
+
+    </main>
+  </div>
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById('cs-thankyou');
+  var layer = document.getElementById('cs-confetti-layer');
+
+  if (!root || !layer || layer.dataset.started === 'yes') return;
+  layer.dataset.started = 'yes';
+
+  var reduced = window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) return;
+
+  var colors = ['#20b96b','#f87319','#ffbd85','#f7dfcc','#7cdda5'];
+
+  for (var i = 0; i < 28; i++) {
+    var piece = document.createElement('span');
+    var angle = Math.PI * 2 * i / 28 + Math.random() * .3;
+    var distance = 55 + Math.random() * 125;
+
+    piece.className = 'cs-confetti-piece';
+    piece.style.setProperty('--x', Math.cos(angle) * distance + 'px');
+    piece.style.setProperty('--y', (Math.sin(angle) * distance * .65 + 35) + 'px');
+    piece.style.setProperty('--r', (Math.random() * 600 - 300) + 'deg');
+    piece.style.setProperty('--c', colors[i % colors.length]);
+    piece.style.setProperty('--w', (4 + Math.random() * 4) + 'px');
+    piece.style.setProperty('--h', (6 + Math.random() * 7) + 'px');
+    piece.style.setProperty('--d', Math.random() * .14 + 's');
+    piece.style.setProperty('--t', (1 + Math.random() * .5) + 's');
+    layer.appendChild(piece);
+  }
+
+  window.setTimeout(function () {
+    if (layer) layer.innerHTML = '';
+  }, 2100);
+})();
+</script>
+
+</body>
+</html>

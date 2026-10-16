@@ -1,0 +1,1785 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>ConversionSystem™ | Secure Enrollment</title>
+</head>
+<body style="margin:0;background:#fff">
+
+<!-- =====================================================
+  ConversionSystem™ — PREMIUM ENROLLMENT
+  Existing content and payment logic preserved.
+  Animation-only UX enhancement added.
+===================================================== -->
+
+<section id="csEnrollment">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+#csEnrollment,
+#csEnrollment * {
+  box-sizing: border-box;
+}
+
+#csEnrollment {
+  --ink: #382F27;
+  --paper: #FFFFFF;
+  --orange: #F36F21;
+  --orange-dark: #A64B1D;
+  --green: #21834A;
+  --muted: #746B62;
+  --line: #E5DCD0;
+  --soft: #FCF9F4;
+  --green-soft: #F0F7F0;
+
+  width: 100%;
+  margin: 0;
+  padding: 46px 18px 54px;
+  overflow: hidden;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Instrument Sans', Arial, sans-serif;
+}
+
+#csEnrollment * {
+  min-width: 0;
+}
+
+#csEnrollment .cse-wrap {
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* HEADER */
+
+#csEnrollment .cse-header {
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+#csEnrollment .cse-step-label {
+  display: block;
+  margin: 0 0 18px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--orange-dark);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15px;
+  line-height: 1.45;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+#csEnrollment .cse-eyebrow {
+  margin: 0 0 9px;
+  color: var(--orange-dark);
+  font-size: 10px;
+  line-height: 1.5;
+  font-weight: 700;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+}
+
+#csEnrollment .cse-title {
+  margin: 0;
+  color: var(--ink);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(34px, 6vw, 47px);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -.065em;
+}
+
+#csEnrollment .cse-title span {
+  display: block;
+  margin-top: 5px;
+  color: var(--orange-dark);
+}
+
+#csEnrollment .cse-intro {
+  max-width: 450px;
+  margin: 14px auto 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* ENROLLMENT PANEL */
+
+#csEnrollment .cse-panel {
+  width: 100%;
+  padding: 25px;
+  background: var(--white, #FFFFFF);
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  box-shadow: 0 10px 32px rgba(67, 49, 31, .045);
+}
+
+#csEnrollment .cse-section-label {
+  margin: 0 0 12px;
+  color: var(--orange-dark);
+  font-size: 9px;
+  line-height: 1.5;
+  font-weight: 700;
+  letter-spacing: 1.55px;
+  text-transform: uppercase;
+}
+
+/* ORDER SUMMARY */
+
+#csEnrollment .cse-order {
+  padding: 17px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--soft);
+}
+
+#csEnrollment .cse-product-name {
+  margin: 0;
+  color: var(--ink);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(19px, 4vw, 23px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -.045em;
+}
+
+#csEnrollment .cse-product-note {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+#csEnrollment .cse-order-divider {
+  height: 1px;
+  margin: 16px 0;
+  border: 0;
+  background: var(--line);
+}
+
+#csEnrollment .cse-total-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+#csEnrollment .cse-total-caption {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--muted);
+  font-size: 9px;
+  line-height: 1.5;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+#csEnrollment .cse-payment-type {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+#csEnrollment .cse-total-price {
+  flex: 0 0 auto;
+  color: var(--green);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 38px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -.065em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* SPECIAL ACCESS */
+
+#csEnrollment .cse-price-stack {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+#csEnrollment .cse-special-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 8px;
+  border-radius: 4px;
+  background: var(--orange);
+  color: var(--ink);
+  font-size: 8px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: .8px;
+  white-space: nowrap;
+}
+
+#csEnrollment .cse-special-text {
+  display: inline-block;
+  transform-origin: center center;
+  animation: cseSpecialTextZoom 1.9s cubic-bezier(.45, 0, .55, 1) infinite;
+}
+
+@keyframes cseSpecialTextZoom {
+  0%, 100% { transform: scale(1); }
+  48% { transform: scale(1.10); }
+  66% { transform: scale(1.015); }
+}
+
+#csEnrollment .cse-price-compare {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 9px;
+}
+
+#csEnrollment .cse-original-price {
+  position: relative;
+  display: inline-block;
+  color: #92877B;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 17px;
+  line-height: 1.1;
+  font-weight: 600;
+  letter-spacing: -.045em;
+  white-space: nowrap;
+}
+
+#csEnrollment .cse-original-price::after {
+  content: "";
+  position: absolute;
+  left: -3px;
+  right: -3px;
+  top: 51%;
+  height: 2px;
+  border-radius: 3px;
+  background: var(--orange);
+  transform: rotate(-7deg);
+  pointer-events: none;
+}
+
+/* SAVINGS */
+
+#csEnrollment .cse-savings {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 14px;
+  padding: 10px 12px;
+  border: 1px solid rgba(33, 131, 74, .22);
+  border-radius: 6px;
+  background: var(--green-soft);
+  color: var(--green);
+  text-align: center;
+  font-size: 11px;
+  line-height: 1.45;
+  font-weight: 700;
+  letter-spacing: .015em;
+}
+
+#csEnrollment .cse-savings svg {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 15px;
+}
+
+#csEnrollment .cse-savings-amount {
+  display: inline-block;
+  margin: 0 2px;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 800;
+  line-height: inherit;
+  white-space: nowrap;
+  transform-origin: center center;
+  animation: cseSavingsTextZoom 1.9s cubic-bezier(.45, 0, .55, 1) infinite;
+  animation-delay: .22s;
+}
+
+@keyframes cseSavingsTextZoom {
+  0%, 100% { transform: scale(1); }
+  48% { transform: scale(1.15); }
+  66% { transform: scale(1.02); }
+}
+
+/* CUSTOMER DETAILS */
+
+#csEnrollment .cse-details {
+  margin-top: 25px;
+}
+
+#csEnrollment .cse-details-title {
+  margin: 0;
+  color: var(--ink);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px;
+  line-height: 1.18;
+  font-weight: 700;
+  letter-spacing: -.045em;
+}
+
+#csEnrollment .cse-details-description {
+  margin: 7px 0 19px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+#csEnrollment .cse-field {
+  margin: 0 0 15px;
+}
+
+#csEnrollment .cse-field label {
+  display: block;
+  margin: 0 0 7px;
+  color: var(--ink);
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 700;
+}
+
+#csEnrollment .cse-field label .optional {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+#csEnrollment .cse-input {
+  display: block;
+  width: 100%;
+  min-height: 49px;
+  padding: 12px 13px;
+  border: 1px solid #DCD2C6;
+  border-radius: 7px;
+  outline: none;
+  background: #FFFFFF;
+  color: var(--ink);
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  box-shadow: none;
+  appearance: none;
+  transition: border-color .18s ease, box-shadow .18s ease;
+}
+
+#csEnrollment .cse-input::placeholder {
+  color: #A0978D;
+  opacity: 1;
+}
+
+#csEnrollment .cse-input:hover {
+  border-color: #BDAF9F;
+}
+
+#csEnrollment .cse-input:focus {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 3px rgba(243, 111, 33, .10);
+}
+
+#csEnrollment .cse-field-help {
+  display: block;
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+/* ENROLLMENT BUTTON */
+
+#csEnrollment .cse-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 54px;
+  margin: 21px 0 0;
+  padding: 14px 16px;
+  border: 1px solid var(--orange);
+  border-radius: 7px;
+  background: var(--orange);
+  color: #382719;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 700;
+  letter-spacing: .035em;
+  text-align: center;
+  cursor: pointer;
+  appearance: none;
+  box-shadow: none;
+}
+
+#csEnrollment .cse-submit:hover {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: #382719;
+  transform: none;
+  box-shadow: none;
+}
+
+#csEnrollment .cse-submit:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+#csEnrollment .cse-submit:disabled {
+  opacity: .7;
+  cursor: wait;
+}
+
+#csEnrollment .cse-submit-arrow {
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* PAYMENT APPS */
+
+#csEnrollment .cse-payment-options {
+  margin: 13px 0 0;
+  text-align: center;
+}
+
+#csEnrollment .cse-payment-options-label {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 9px;
+  line-height: 1.4;
+  font-weight: 700;
+  letter-spacing: 1.15px;
+  text-transform: uppercase;
+}
+
+#csEnrollment .cse-payment-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px 24px;
+}
+
+#csEnrollment .cse-payment-logo {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 26px;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: #49423B;
+  white-space: nowrap;
+}
+
+#csEnrollment .cse-logo-image {
+  display: none;
+  width: auto;
+  height: 22px;
+  max-width: 90px;
+  object-fit: contain;
+  object-position: center;
+}
+
+#csEnrollment .cse-logo-image.is-loaded {
+  display: block;
+}
+
+#csEnrollment .cse-payment-logo-fallback {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 11px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+#csEnrollment .cse-payment-logo-fallback[hidden] {
+  display: none !important;
+}
+
+#csEnrollment .cse-brand-symbol {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  font-family: Arial, sans-serif;
+  font-weight: 700;
+  line-height: 1;
+}
+
+#csEnrollment .cse-google-symbol {
+  display: block;
+  overflow: visible;
+}
+
+#csEnrollment .cse-phonepe-symbol {
+  border-radius: 50%;
+  background: #5F259F;
+  color: #FFFFFF;
+  font-size: 11px;
+}
+
+#csEnrollment .cse-paytm-wordmark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -.7px;
+  white-space: nowrap;
+}
+
+#csEnrollment .cse-paytm-wordmark .paytm-pay {
+  color: #002970;
+}
+
+#csEnrollment .cse-paytm-wordmark .paytm-tm {
+  color: #00BAF2;
+}
+
+/* PAYMENT STATUS */
+
+#csEnrollment .cse-status {
+  display: none;
+  margin: 15px 0 0;
+  padding: 11px 12px;
+  border: 1px solid #E4C8AE;
+  border-radius: 7px;
+  background: #FFF7EF;
+  color: #79421F;
+  font-size: 12px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+#csEnrollment .cse-status.is-visible {
+  display: block;
+}
+
+#csEnrollment .cse-status.is-error {
+  border-color: #E5C2BB;
+  background: #FFF5F2;
+  color: #8B3528;
+}
+
+#csEnrollment .cse-status.is-success {
+  border-color: #BED8C4;
+  background: var(--green-soft);
+  color: #285F37;
+}
+
+/* PAYMENT REASSURANCE */
+
+#csEnrollment .cse-secure {
+  margin: 14px 0 0;
+  text-align: center;
+}
+
+#csEnrollment .cse-secure-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  color: var(--ink);
+  font-size: 11px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+#csEnrollment .cse-secure-main svg {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 15px;
+  color: var(--green);
+}
+
+#csEnrollment .cse-secure-note {
+  max-width: 390px;
+  margin: 6px auto 0;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+/* SUPPORT */
+
+#csEnrollment .cse-help {
+  margin: 18px 0 0;
+  text-align: center;
+}
+
+#csEnrollment .cse-help-title {
+  margin: 0 0 4px;
+  color: var(--ink);
+  font-size: 11px;
+  line-height: 1.5;
+  font-weight: 700;
+}
+
+#csEnrollment .cse-help-text {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* AFTER YOU JOIN */
+
+#csEnrollment .cse-next {
+  margin-top: 43px;
+}
+
+#csEnrollment .cse-next-heading {
+  max-width: 510px;
+  margin: 0 auto 23px;
+  text-align: center;
+}
+
+#csEnrollment .cse-next-kicker {
+  margin: 0 0 8px;
+  color: var(--orange-dark);
+  font-size: 9px;
+  line-height: 1.5;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+}
+
+#csEnrollment .cse-next-title {
+  margin: 0;
+  color: var(--ink);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(25px, 5vw, 34px);
+  line-height: 1.1;
+  letter-spacing: -.055em;
+  font-weight: 700;
+}
+
+#csEnrollment .cse-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+#csEnrollment .cse-step {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  align-items: start;
+  gap: 15px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+#csEnrollment .cse-step:first-child {
+  border-top: 1px solid var(--line);
+}
+
+#csEnrollment .cse-step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #E9B995;
+  border-radius: 50%;
+  background: #FFF8F2;
+  color: var(--orange-dark);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 700;
+}
+
+#csEnrollment .cse-step-title {
+  margin: 1px 0 5px;
+  color: var(--ink);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  line-height: 1.3;
+  font-weight: 700;
+  letter-spacing: -.025em;
+}
+
+#csEnrollment .cse-step-description {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+/* EXISTING SCROLL REVEAL */
+
+#csEnrollment .cse-reveal {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+#csEnrollment.cse-motion-ready .cse-reveal {
+  opacity: 0;
+  transform: translate3d(0, 13px, 0);
+  filter: blur(1.5px);
+  transition:
+    opacity .78s cubic-bezier(.22, 1, .36, 1),
+    transform .78s cubic-bezier(.22, 1, .36, 1),
+    filter .78s cubic-bezier(.22, 1, .36, 1);
+  transition-delay: var(--cse-delay, 0ms);
+  will-change: opacity, transform, filter;
+}
+
+#csEnrollment.cse-motion-ready .cse-reveal.cse-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  filter: blur(0);
+}
+
+/* =====================================================
+   ADDED CHECKOUT ENTRANCE MOTION
+   Animation-only CSS: payment JavaScript untouched.
+===================================================== */
+
+#csEnrollment .cse-header .cse-step-label {
+  animation: cseSoftRise .7s cubic-bezier(.22, 1, .36, 1) .04s both;
+}
+
+#csEnrollment .cse-header .cse-eyebrow {
+  animation: cseSoftRise .7s cubic-bezier(.22, 1, .36, 1) .12s both;
+}
+
+#csEnrollment .cse-header .cse-title {
+  animation: cseTitleSettle .85s cubic-bezier(.22, 1, .36, 1) .16s both;
+}
+
+#csEnrollment .cse-header .cse-intro {
+  animation: cseSoftRise .75s cubic-bezier(.22, 1, .36, 1) .25s both;
+}
+
+#csEnrollment .cse-panel {
+  transform-origin: 50% 0;
+  animation: csePanelArrive .9s cubic-bezier(.22, 1, .36, 1) .08s both;
+}
+
+#csEnrollment .cse-panel > .cse-section-label {
+  animation: cseSoftRise .7s cubic-bezier(.22, 1, .36, 1) .17s both;
+}
+
+#csEnrollment .cse-order {
+  animation: cseSoftRise .8s cubic-bezier(.22, 1, .36, 1) .22s both;
+}
+
+#csEnrollment .cse-details-title {
+  animation: cseSoftRise .7s cubic-bezier(.22, 1, .36, 1) .3s both;
+}
+
+#csEnrollment .cse-details-description {
+  animation: cseSoftRise .7s cubic-bezier(.22, 1, .36, 1) .36s both;
+}
+
+#csEnrollment .cse-details .cse-field:nth-of-type(1) {
+  animation: cseSoftRise .7s cubic-bezier(.22, 1, .36, 1) .38s both;
+}
+
+#csEnrollment .cse-details .cse-field:nth-of-type(2) {
+  animation: cseSoftRise .7s cubic-bezier(.22, 1, .36, 1) .46s both;
+}
+
+#csEnrollment .cse-details .cse-field:nth-of-type(3) {
+  animation: cseSoftRise .7s cubic-bezier(.22, 1, .36, 1) .54s both;
+}
+
+#csEnrollment .cse-submit {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  animation: cseButtonArrive .78s cubic-bezier(.22, 1, .36, 1) .58s both;
+}
+
+#csEnrollment .cse-submit > span {
+  position: relative;
+  z-index: 1;
+}
+
+#csEnrollment .cse-submit::after {
+  content: "";
+  position: absolute;
+  top: -35%;
+  left: -70%;
+  width: 42%;
+  height: 170%;
+  border-radius: inherit;
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    rgba(255,255,255,.36) 48%,
+    transparent 100%
+  );
+  transform: skewX(-22deg);
+  pointer-events: none;
+  z-index: 0;
+  animation: cseButtonShine 4.6s ease-in-out 1.5s infinite;
+}
+
+#csEnrollment .cse-payment-options {
+  animation: cseSoftRise .7s cubic-bezier(.22, 1, .36, 1) .68s both;
+}
+
+#csEnrollment .cse-payment-logo {
+  animation: cseLogoSettle .65s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+#csEnrollment .cse-payment-logo:nth-child(1) { animation-delay: .72s; }
+#csEnrollment .cse-payment-logo:nth-child(2) { animation-delay: .80s; }
+#csEnrollment .cse-payment-logo:nth-child(3) { animation-delay: .88s; }
+
+#csEnrollment .cse-secure {
+  animation: cseSoftRise .7s cubic-bezier(.22, 1, .36, 1) .76s both;
+}
+
+#csEnrollment .cse-help {
+  animation: cseSoftRise .7s cubic-bezier(.22, 1, .36, 1) .84s both;
+}
+
+/* AFTER YOU JOIN — enhance the existing scroll reveals */
+
+#csEnrollment .cse-step-number {
+  transform-origin: center;
+}
+
+#csEnrollment .cse-step.cse-visible .cse-step-number {
+  animation: cseStepNumberPop .55s cubic-bezier(.17, .89, .32, 1.25) .08s both;
+}
+
+#csEnrollment .cse-step.cse-visible .cse-step-title {
+  animation: cseSoftRise .55s ease .12s both;
+}
+
+#csEnrollment .cse-step.cse-visible .cse-step-description {
+  animation: cseSoftRise .6s ease .18s both;
+}
+
+#csEnrollment .cse-next-heading.cse-visible .cse-next-kicker {
+  animation: cseSoftRise .6s ease both;
+}
+
+#csEnrollment .cse-next-heading.cse-visible .cse-next-title {
+  animation: cseTitleSettle .7s cubic-bezier(.22, 1, .36, 1) .07s both;
+}
+
+@keyframes cseSoftRise {
+  from { opacity: 0; transform: translate3d(0, 13px, 0); filter: blur(1.5px); }
+  to   { opacity: 1; transform: translate3d(0, 0, 0); filter: blur(0); }
+}
+
+@keyframes cseTitleSettle {
+  from { opacity: 0; transform: translate3d(0, 16px, 0) scale(.985); filter: blur(2px); }
+  to   { opacity: 1; transform: translate3d(0, 0, 0) scale(1); filter: blur(0); }
+}
+
+@keyframes csePanelArrive {
+  from { opacity: 0; transform: translate3d(0, 21px, 0) scale(.99); }
+  to   { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@keyframes cseButtonArrive {
+  from { opacity: 0; transform: translate3d(0, 12px, 0) scale(.985); }
+  to   { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@keyframes cseButtonShine {
+  0%, 65%, 100% { left: -70%; }
+  35% { left: 135%; }
+}
+
+@keyframes cseLogoSettle {
+  from { opacity: 0; transform: translate3d(0, 7px, 0); }
+  to   { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes cseStepNumberPop {
+  0% { opacity: .6; transform: scale(.78); }
+  70% { opacity: 1; transform: scale(1.08); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #csEnrollment .cse-header .cse-step-label,
+  #csEnrollment .cse-header .cse-eyebrow,
+  #csEnrollment .cse-header .cse-title,
+  #csEnrollment .cse-header .cse-intro,
+  #csEnrollment .cse-panel,
+  #csEnrollment .cse-panel > .cse-section-label,
+  #csEnrollment .cse-order,
+  #csEnrollment .cse-details-title,
+  #csEnrollment .cse-details-description,
+  #csEnrollment .cse-details .cse-field,
+  #csEnrollment .cse-submit,
+  #csEnrollment .cse-payment-options,
+  #csEnrollment .cse-payment-logo,
+  #csEnrollment .cse-secure,
+  #csEnrollment .cse-help,
+  #csEnrollment .cse-step.cse-visible .cse-step-number,
+  #csEnrollment .cse-step.cse-visible .cse-step-title,
+  #csEnrollment .cse-step.cse-visible .cse-step-description,
+  #csEnrollment .cse-next-heading.cse-visible .cse-next-kicker,
+  #csEnrollment .cse-next-heading.cse-visible .cse-next-title {
+    animation: none !important;
+    filter: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  #csEnrollment .cse-submit::after {
+    animation: none !important;
+  }
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 520px) {
+  #csEnrollment {
+    padding: 32px 14px 39px;
+  }
+
+  #csEnrollment .cse-header {
+    margin-bottom: 21px;
+  }
+
+  #csEnrollment .cse-step-label {
+    margin-bottom: 15px;
+    font-size: 14px;
+  }
+
+  #csEnrollment .cse-title {
+    font-size: clamp(32px, 9vw, 41px);
+  }
+
+  #csEnrollment .cse-intro {
+    margin-top: 12px;
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  #csEnrollment .cse-panel {
+    padding: 17px;
+    border-radius: 11px;
+  }
+
+  #csEnrollment .cse-order {
+    padding: 14px;
+  }
+
+  #csEnrollment .cse-product-name {
+    font-size: 19px;
+  }
+
+  #csEnrollment .cse-total-price {
+    font-size: 32px;
+  }
+
+  #csEnrollment .cse-price-stack {
+    gap: 5px;
+  }
+
+  #csEnrollment .cse-original-price {
+    font-size: 14px;
+  }
+
+  #csEnrollment .cse-price-compare {
+    gap: 7px;
+  }
+
+  #csEnrollment .cse-special-badge {
+    font-size: 7px;
+    padding: 5px 6px;
+    letter-spacing: .55px;
+  }
+
+  #csEnrollment .cse-savings {
+    margin-top: 12px;
+    padding: 9px 8px;
+    font-size: 10px;
+  }
+
+  #csEnrollment .cse-details {
+    margin-top: 22px;
+  }
+
+  #csEnrollment .cse-details-title {
+    font-size: 21px;
+  }
+
+  #csEnrollment .cse-input {
+    min-height: 48px;
+    font-size: 16px;
+  }
+
+  #csEnrollment .cse-submit {
+    min-height: 53px;
+    padding: 13px 10px;
+    font-size: 15px;
+  }
+
+  #csEnrollment .cse-payment-options {
+    margin-top: 12px;
+  }
+
+  #csEnrollment .cse-payment-logos {
+    gap: 13px 18px;
+  }
+
+  #csEnrollment .cse-payment-logo {
+    min-height: 24px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  #csEnrollment .cse-logo-image {
+    height: 21px;
+    max-width: 79px;
+  }
+
+  #csEnrollment .cse-payment-logo-fallback {
+    font-size: 10px;
+    gap: 5px;
+  }
+
+  #csEnrollment .cse-brand-symbol {
+    width: 20px;
+    height: 20px;
+    flex-basis: 20px;
+  }
+
+  #csEnrollment .cse-google-symbol {
+    font-size: 22px;
+  }
+
+  #csEnrollment .cse-paytm-wordmark {
+    font-size: 14px;
+  }
+
+  #csEnrollment .cse-payment-options-label {
+    font-size: 8px;
+    letter-spacing: .9px;
+  }
+
+  #csEnrollment .cse-next {
+    margin-top: 35px;
+  }
+
+  #csEnrollment .cse-next-heading {
+    margin-bottom: 18px;
+  }
+
+  #csEnrollment .cse-step {
+    grid-template-columns: 36px minmax(0, 1fr);
+    gap: 12px;
+    padding: 16px 0;
+  }
+
+  #csEnrollment .cse-step-number {
+    width: 33px;
+    height: 33px;
+  }
+
+  #csEnrollment .cse-step-title {
+    font-size: 15px;
+  }
+
+  #csEnrollment .cse-step-description {
+    font-size: 12px;
+  }
+}
+
+@media(max-width: 350px) {
+  #csEnrollment {
+    padding-right: 11px;
+    padding-left: 11px;
+  }
+
+  #csEnrollment .cse-panel {
+    padding: 13px;
+  }
+
+  #csEnrollment .cse-total-price {
+    font-size: 27px;
+  }
+
+  #csEnrollment .cse-original-price {
+    font-size: 12px;
+  }
+
+  #csEnrollment .cse-price-compare {
+    gap: 5px;
+  }
+
+  #csEnrollment .cse-special-badge {
+    font-size: 6.5px;
+    padding: 4px 5px;
+    letter-spacing: .3px;
+  }
+
+  #csEnrollment .cse-savings {
+    font-size: 9px;
+  }
+
+  #csEnrollment .cse-product-name {
+    font-size: 18px;
+  }
+
+  #csEnrollment .cse-step {
+    gap: 9px;
+  }
+
+  #csEnrollment .cse-payment-logos {
+    gap: 11px 14px;
+  }
+
+  #csEnrollment .cse-payment-logo {
+    min-height: 22px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  #csEnrollment .cse-logo-image {
+    height: 19px;
+    max-width: 69px;
+  }
+
+  #csEnrollment .cse-payment-logo-fallback {
+    font-size: 9px;
+    gap: 4px;
+  }
+
+  #csEnrollment .cse-brand-symbol {
+    width: 18px;
+    height: 18px;
+    flex-basis: 18px;
+  }
+
+  #csEnrollment .cse-google-symbol {
+    font-size: 20px;
+  }
+
+  #csEnrollment .cse-phonepe-symbol {
+    font-size: 10px;
+  }
+
+  #csEnrollment .cse-paytm-wordmark {
+    font-size: 13px;
+  }
+}
+
+/* KEEP PAYTM WORDMARK JOINED */
+
+#csEnrollment .cse-payment-logo-fallback.cse-paytm-wordmark {
+  gap: 0;
+}
+
+/* ACCESSIBILITY */
+
+@media(prefers-reduced-motion: reduce) {
+  #csEnrollment *,
+  #csEnrollment *::before,
+  #csEnrollment *::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  #csEnrollment.cse-motion-ready .cse-reveal,
+  #csEnrollment.cse-motion-ready .cse-reveal.cse-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
+</style>
+
+<div class="cse-wrap">
+
+  <header class="cse-header cse-reveal">
+    <p class="cse-step-label">You're joining the challenge!!</p>
+    <p class="cse-eyebrow">YOU'RE ALMOST THERE</p>
+    <h1 class="cse-title">Let's get you <span>started.</span></h1>
+    <p class="cse-intro">Review your enrollment and continue to secure payment.</p>
+  </header>
+
+  <div class="cse-panel">
+    <p class="cse-section-label">YOUR ENROLLMENT</p>
+
+    <div class="cse-order">
+      <h2 class="cse-product-name">30-Day Brand Fix Challenge</h2>
+      <p class="cse-product-note">Guided brand work · One-time access</p>
+      <hr class="cse-order-divider">
+
+      <div class="cse-total-row">
+        <div>
+          <span class="cse-total-caption">TOTAL PAYABLE</span>
+          <span class="cse-payment-type">One-time payment · No subscription</span>
+        </div>
+
+        <div class="cse-price-stack">
+          <span class="cse-special-badge">
+            <span class="cse-special-text">SPECIAL ACCESS</span>
+          </span>
+
+          <div class="cse-price-compare">
+            <span class="cse-original-price" aria-label="Reference price ₹4,999">₹4,999</span>
+            <span class="cse-total-price" aria-label="Current price ₹999">₹999</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cse-savings">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M5 12.5L9.2 16.5L19 7"
+            stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
+        <span>
+          YOU SAVE <strong class="cse-savings-amount">₹4,000</strong> ON YOUR 30-DAY ACCESS
+        </span>
+      </div>
+    </div>
+
+    <form id="cseEnrollmentForm" novalidate>
+      <div class="cse-details">
+        <h2 class="cse-details-title">Where should we send your details?</h2>
+        <p class="cse-details-description">Just the essentials. You can share your brand details after joining.</p>
+
+        <div class="cse-field">
+          <label for="cseName">Your name</label>
+          <input class="cse-input" id="cseName" name="name" type="text"
+            autocomplete="name" placeholder="Enter your full name"
+            minlength="2" maxlength="100" required>
+        </div>
+
+        <div class="cse-field">
+          <label for="cseEmail">Email address</label>
+          <input class="cse-input" id="cseEmail" name="email" type="email"
+            autocomplete="email" placeholder="you@example.com"
+            maxlength="254" required>
+          <span class="cse-field-help">Use an email you can access.</span>
+        </div>
+
+        <div class="cse-field">
+          <label for="cseWhatsApp">WhatsApp number <span class="optional">(optional)</span></label>
+          <input class="cse-input" id="cseWhatsApp" name="whatsapp" type="tel"
+            autocomplete="tel" inputmode="tel"
+            placeholder="+91 98765 43210" maxlength="25">
+          <span class="cse-field-help">Add this if you would like WhatsApp to be used for onboarding communication.</span>
+        </div>
+      </div>
+
+      <button class="cse-submit" id="cseSubmit" type="submit">
+        <span id="cseSubmitLabel">COMPLETE ENROLLMENT · ₹999</span>
+        <span class="cse-submit-arrow" aria-hidden="true">→</span>
+      </button>
+
+      <div class="cse-payment-options" aria-label="Popular UPI apps">
+        <p class="cse-payment-options-label">PAY WITH YOUR UPI APP</p>
+
+        <div class="cse-payment-logos">
+          <span class="cse-payment-logo" role="img" aria-label="Google Pay">
+            <img class="cse-logo-image"
+              src="https://developers.google.com/static/pay/api/images/brand-guidelines/google-pay-logo.png"
+              alt="" width="56" height="23" loading="eager" decoding="async"
+              onload="this.classList.add('is-loaded');this.nextElementSibling.hidden=true"
+              onerror="this.hidden=true">
+
+            <span class="cse-payment-logo-fallback">
+              <svg class="cse-brand-symbol cse-google-symbol" viewBox="0 0 24 24"
+                aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.09-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.15v2.84A11 11 0 0 0 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.15a11 11 0 0 0 0 9.88l3.69-2.84z"/>
+                <path fill="#EA4335" d="M12 4.36c1.62 0 3.06.56 4.21 1.64l3.15-3.15A10.53 10.53 0 0 0 12 0a11 11 0 0 0-9.85 7.06l3.69 2.84c.87-2.6 3.3-5.54 6.16-5.54z"/>
+              </svg>
+              <span>Google Pay</span>
+            </span>
+          </span>
+
+          <span class="cse-payment-logo" role="img" aria-label="PhonePe">
+            <img class="cse-logo-image"
+              src="https://upload.wikimedia.org/wikipedia/commons/7/71/PhonePe_Logo.svg"
+              alt="" width="72" height="22" loading="eager" decoding="async"
+              onload="this.classList.add('is-loaded');this.nextElementSibling.hidden=true"
+              onerror="this.hidden=true">
+
+            <span class="cse-payment-logo-fallback">
+              <span class="cse-brand-symbol cse-phonepe-symbol" aria-hidden="true">पे</span>
+              <span>PhonePe</span>
+            </span>
+          </span>
+
+          <span class="cse-payment-logo" role="img" aria-label="Paytm">
+            <span class="cse-payment-logo-fallback cse-paytm-wordmark">
+              <span class="paytm-pay">pay</span><span class="paytm-tm">tm</span>
+            </span>
+          </span>
+        </div>
+      </div>
+
+      <div class="cse-status" id="cseStatus" role="status"
+        aria-live="polite" tabindex="-1"></div>
+    </form>
+
+    <div class="cse-secure">
+      <div class="cse-secure-main">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M7 10V7.5a5 5 0 0 1 10 0V10"
+            stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+          <rect x="4.5" y="10" width="15" height="11" rx="2"
+            stroke="currentColor" stroke-width="1.7"/>
+          <path d="M12 14v3" stroke="currentColor"
+            stroke-width="1.7" stroke-linecap="round"/>
+        </svg>
+        <span>Secure payment handled by Razorpay</span>
+      </div>
+
+      <p class="cse-secure-note">
+        Available payment methods will appear in the secure payment window.
+      </p>
+    </div>
+
+    <div class="cse-help">
+      <p class="cse-help-title">Need help with enrollment?</p>
+      <p class="cse-help-text">Contact ConversionSystem™ through your official support channel.</p>
+    </div>
+  </div>
+
+  <!-- WHAT HAPPENS AFTER YOU JOIN -->
+
+  <section class="cse-next" aria-labelledby="cseNextTitle">
+    <div class="cse-next-heading cse-reveal">
+      <p class="cse-next-kicker">AFTER YOU JOIN</p>
+      <h2 class="cse-next-title" id="cseNextTitle">Here's how your journey begins.</h2>
+    </div>
+
+    <div class="cse-steps">
+      <article class="cse-step cse-reveal">
+        <div class="cse-step-number" aria-hidden="true">01</div>
+        <div>
+          <h3 class="cse-step-title">Show Us Your Starting Point</h3>
+          <p class="cse-step-description">Share your store, current sales situation, and biggest frustration so we can understand where your jewellery brand stands today.</p>
+        </div>
+      </article>
+
+      <article class="cse-step cse-reveal">
+        <div class="cse-step-number" aria-hidden="true">02</div>
+        <div>
+          <h3 class="cse-step-title">PINPOINT The Reason Behind Your Low Sales</h3>
+          <p class="cse-step-description">Find out why people want your jewellery but still don’t buy it and what to fix first.</p>
+        </div>
+      </article>
+
+      <article class="cse-step cse-reveal">
+        <div class="cse-step-number" aria-hidden="true">03</div>
+        <div>
+          <h3 class="cse-step-title">GET YOUR 100-ORDER BLUEPRINT.</h3>
+          <p class="cse-step-description">Get a clear 30-day action plan showing what to fix, what to improve, and what to focus on first as you work towards your next 100 orders.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+</div>
+
+<!-- RAZORPAY CHECKOUT SDK -->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+(function () {
+  const section = document.getElementById('csEnrollment');
+  const form = document.getElementById('cseEnrollmentForm');
+
+  if (!section || !form || form.dataset.initialized === 'true') return;
+  form.dataset.initialized = 'true';
+
+  const config = {
+    createOrderEndpoint: 'https://cs-razorpay-backend.vercel.app/api/create-order',
+    verifyPaymentEndpoint: 'https://cs-razorpay-backend.vercel.app/api/verify-payment',
+    successUrl: '/thank-you'
+  };
+
+  const submitButton = document.getElementById('cseSubmit');
+  const submitLabel = document.getElementById('cseSubmitLabel');
+  const statusBox = document.getElementById('cseStatus');
+  const nameField = document.getElementById('cseName');
+  const emailField = document.getElementById('cseEmail');
+  const whatsappField = document.getElementById('cseWhatsApp');
+
+  const originalLabel = 'COMPLETE ENROLLMENT · ₹999';
+  let paymentInProgress = false;
+
+  function setStatus(message, type) {
+    statusBox.textContent = message;
+    statusBox.className = 'cse-status is-visible';
+
+    if (type === 'error') statusBox.classList.add('is-error');
+    if (type === 'success') statusBox.classList.add('is-success');
+  }
+
+  function clearStatus() {
+    statusBox.textContent = '';
+    statusBox.className = 'cse-status';
+  }
+
+  function setBusy(isBusy, label) {
+    submitButton.disabled = isBusy;
+    submitLabel.textContent = label || originalLabel;
+  }
+
+  function getEnrollmentDetails() {
+    return {
+      name: nameField.value.trim(),
+      email: emailField.value.trim(),
+      whatsapp: whatsappField.value.trim()
+    };
+  }
+
+  function isValidEnrollment(details) {
+    if (details.name.length < 2) {
+      nameField.focus();
+      setStatus('Please enter your full name to continue.', 'error');
+      return false;
+    }
+
+    if (!emailField.checkValidity()) {
+      emailField.focus();
+      setStatus('Please enter a valid email address you can access.', 'error');
+      return false;
+    }
+
+    if (details.whatsapp) {
+      const digits = details.whatsapp.replace(/\D/g, '');
+
+      if (digits.length < 7 || digits.length > 15) {
+        whatsappField.focus();
+        setStatus(
+          'Please check the WhatsApp number, or leave it blank if you prefer not to share it.',
+          'error'
+        );
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  async function postJSON(url, payload) {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      credentials: 'same-origin',
+      body: JSON.stringify(payload)
+    });
+
+    let data = {};
+
+    try {
+      data = await response.json();
+    } catch (error) {
+      data = {};
+    }
+
+    if (!response.ok) {
+      throw new Error(
+        data.message || 'We could not complete that step. Please try again.'
+      );
+    }
+
+    return data;
+  }
+
+  function getPrefillContact(value) {
+    if (!value) return '';
+
+    let cleaned = value.replace(/[^\d+]/g, '');
+
+    if (/^\d{10}$/.test(cleaned)) {
+      cleaned = '+91' + cleaned;
+    } else if (/^91\d{10}$/.test(cleaned)) {
+      cleaned = '+' + cleaned;
+    }
+
+    return cleaned;
+  }
+
+  function getSafeSuccessPath() {
+    try {
+      const url = new URL(config.successUrl, window.location.origin);
+
+      if (url.origin !== window.location.origin) {
+        return '/welcome';
+      }
+
+      return url.pathname + url.search + url.hash;
+
+    } catch (error) {
+      return '/welcome';
+    }
+  }
+
+  /* ENROLLMENT FORM + SECURE CHECKOUT */
+
+  form.addEventListener('submit', async function (event) {
+    event.preventDefault();
+    clearStatus();
+
+    if (paymentInProgress) return;
+
+    const details = getEnrollmentDetails();
+    if (!isValidEnrollment(details)) return;
+
+    if (!config.createOrderEndpoint || !config.verifyPaymentEndpoint) {
+      setStatus(
+        'Your enrollment form is ready. Razorpay still needs to be connected to the secure server-side payment flow before customers can pay. No payment has been taken.',
+        'error'
+      );
+      return;
+    }
+
+    if (typeof window.Razorpay !== 'function') {
+      setStatus(
+        'The secure payment window could not load. Please check your connection and try again.',
+        'error'
+      );
+      return;
+    }
+
+    paymentInProgress = true;
+    setBusy(true, 'PREPARING SECURE PAYMENT...');
+
+    try {
+      const order = await postJSON(config.createOrderEndpoint, {
+        product: 'brand_fix_challenge_30d',
+        name: details.name,
+        email: details.email,
+        whatsapp: details.whatsapp || null
+      });
+
+      if (
+        !order.keyId ||
+        !order.orderId ||
+        Number(order.amount) !== 99900 ||
+        order.currency !== 'INR'
+      ) {
+        throw new Error(
+          'The secure order could not be validated. Please contact support.'
+        );
+      }
+
+      let verificationStarted = false;
+
+      const options = {
+        key: order.keyId,
+        amount: order.amount,
+        currency: order.currency,
+        name: 'ConversionSystem™',
+        description: '30-Day Brand Fix Challenge',
+        order_id: order.orderId,
+
+        prefill: {
+          name: details.name,
+          email: details.email,
+          ...(details.whatsapp
+            ? { contact: getPrefillContact(details.whatsapp) }
+            : {})
+        },
+
+        theme: { color: '#F36F21' },
+
+        modal: {
+          ondismiss: function () {
+            paymentInProgress = false;
+            setBusy(false);
+
+            if (!verificationStarted) {
+              setStatus(
+                'The payment window was closed. Your enrollment is not confirmed yet. You can try again whenever you are ready.',
+                'error'
+              );
+            }
+          }
+        },
+
+        handler: async function (paymentResponse) {
+          verificationStarted = true;
+          setBusy(true, 'CONFIRMING YOUR PAYMENT...');
+
+          setStatus(
+            'Payment response received. We are verifying your payment securely.',
+            ''
+          );
+
+          try {
+            const verification = await postJSON(
+              config.verifyPaymentEndpoint,
+              {
+                product: 'brand_fix_challenge_30d',
+                name: details.name,
+                email: details.email,
+                whatsapp: details.whatsapp || null,
+                razorpay_payment_id: paymentResponse.razorpay_payment_id,
+                razorpay_order_id: paymentResponse.razorpay_order_id,
+                razorpay_signature: paymentResponse.razorpay_signature
+              }
+            );
+
+            if (verification.verified !== true) {
+              throw new Error(
+                'Your payment is not verified yet. Please contact support before trying to pay again.'
+              );
+            }
+
+            setStatus(
+              'Payment verified. Taking you to your welcome page...',
+              'success'
+            );
+
+            window.location.assign(getSafeSuccessPath());
+
+          } catch (error) {
+            setBusy(false);
+            setStatus(
+              error.message ||
+              'We could not confirm the payment status. Please contact support before attempting another payment.',
+              'error'
+            );
+
+          } finally {
+            paymentInProgress = false;
+          }
+        }
+      };
+
+      const checkout = new window.Razorpay(options);
+
+      checkout.on('payment.failed', function (response) {
+        paymentInProgress = false;
+        setBusy(false);
+
+        const description =
+          response && response.error && response.error.description;
+
+        setStatus(
+          description
+            ? 'Payment was not completed: ' + description +
+              '. You can review your details and try again.'
+            : 'Payment was not completed. Please review your details and try again.',
+          'error'
+        );
+      });
+
+      checkout.open();
+      setBusy(false);
+
+    } catch (error) {
+      paymentInProgress = false;
+      setBusy(false);
+      setStatus(
+        error.message || 'We could not start secure checkout. Please try again.',
+        'error'
+      );
+    }
+  });
+
+  /* EXISTING SCROLL REVEAL */
+
+  const reduceMotion = window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (reduceMotion || !('IntersectionObserver' in window)) return;
+
+  const revealTargets = Array.from(
+    section.querySelectorAll('.cse-reveal')
+  );
+
+  if (!revealTargets.length) return;
+
+  revealTargets.forEach(function (el) {
+    let delay = 0;
+
+    if (el.classList.contains('cse-header')) {
+      delay = 0;
+    } else if (el.classList.contains('cse-next-heading')) {
+      delay = 50;
+    } else if (el.classList.contains('cse-step')) {
+      const steps = Array.from(section.querySelectorAll('.cse-step'));
+      delay = 60 + Math.max(0, steps.indexOf(el)) * 100;
+    }
+
+    el.style.setProperty('--cse-delay', delay + 'ms');
+  });
+
+  const observer = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('cse-visible');
+        observer.unobserve(entry.target);
+      });
+    },
+    {
+      threshold: 0.1,
+      rootMargin: '0px 0px -4% 0px'
+    }
+  );
+
+  revealTargets.forEach(function (el) {
+    observer.observe(el);
+  });
+
+  section.classList.add('cse-motion-ready');
+
+  requestAnimationFrame(function () {
+    revealTargets.forEach(function (el) {
+      const rect = el.getBoundingClientRect();
+
+      if (rect.top < window.innerHeight * 0.95 && rect.bottom > 0) {
+        el.classList.add('cse-visible');
+        observer.unobserve(el);
+      }
+    });
+  });
+
+})();
+</script>
+
+</section>
+
+</body>
+</html>
